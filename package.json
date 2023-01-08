@@ -1,0 +1,19 @@
+{
+  "name": "vv-ring-api",
+  "version": "1.0.0",
+  "description": "a simplified version of the ring api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Albert Starreveld",
+  "license": "ISC",
+  "devDependencies": {
+    "archiver": "^5.3.1",
+    "body-parser": "^1.20.1",
+    "connect-busboy": "^1.0.0",
+    "express": "^4.18.2",
+    "ffmpeg": "^0.0.4",
+    "ring-client-api": "^11.7.1"
+  }
+}
