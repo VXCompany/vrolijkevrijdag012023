@@ -13,6 +13,7 @@ const fs = require('fs');
 // === get ring refresh token and initiate the ring api client ===
 
 let ringApiClient = null;
+let refreshToken = null;
 
 let apiClientInitiated = new Promise(async (resolve, reject) => { 
     fs.readFile('.refreshtoken', 'utf8', (err, data) => {
@@ -20,6 +21,7 @@ let apiClientInitiated = new Promise(async (resolve, reject) => {
             throw `Unable to retreive .refreshtoken ${err}`
         }
 
+        refreshToken = data.trim();
         ringApiClient = new ringClientApi.RingApi({
             refreshToken: data.trim()
         });
@@ -101,6 +103,21 @@ app.get('/cameras/:cameraId/history', async (req, res) => {
         res.statusCode = 500;
         res.send(e);
     }
+});
+
+app.get('/cameras/:cameraId/history/:historyId', async (req, res) => {
+    let archive = await history.getVideoStream(refreshToken, req.params.historyId);
+    if (!archive) {
+        res.statusCode = 404;
+        res.send({ error: `A recording with event id ${req.params.historyId} does not exist.` });
+        return;
+    }
+
+    var file = fs.readFileSync(`${__dirname}/${archive}`, 'binary');
+
+    res.setHeader('Content-Length', file.length);
+    res.write(file, 'binary');
+    res.end();
 });
 
 app.get('/cameras/:cameraId/livestream', async (req, res) => {

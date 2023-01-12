@@ -1,7 +1,7 @@
 const ffmpeg = require('ffmpeg');
 const fs = require('fs');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-var archiver = require('archiver');
+const archiver = require('archiver');
 
 exports.getLivestream = async (ringApiClient, cameraId, seconds) => { 
     console.log(`>> initiating live-stream for camera #${cameraId}`);
@@ -32,17 +32,30 @@ exports.getLivestream = async (ringApiClient, cameraId, seconds) => {
 
         // record
         await new Promise(async (resolve, reject) => {
+            let inProgress = true; 
+
             console.log('start recording');
             camera.recordToFile(mp4, seconds).then(() => {
-                livecall.stop();   
+                console.log('stopping');
+                livecall.stop()
                 console.log('recording stopped');
+                inProgress = false;
                 resolve();
             });
+
+            setTimeout(() => {
+                if(inProgress){ 
+                    console.log('aborting...');
+                    reject(); 
+                }
+            }, 20000);
         });
+
+        console.log('converting the results');
 
         // convert output to mp3 and screen captures
         await new Promise(async (resolve, reject) => {
-            console.log('converting the results');
+            console.log('initializing mpeg');
             var mpeg = new ffmpeg(mp4);
             mpeg.then(async (video) => {
                 let options = { start_time: '00:00:00', every_n_frames: 25 };
