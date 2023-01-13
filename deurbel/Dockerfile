@@ -9,11 +9,13 @@ WORKDIR /usr/src/app
 
 COPY . .
 
+RUN chmod 704 start.sh
+
 RUN npm install
 
 EXPOSE 80
 
-CMD [ "sh", "-c", "echo $refreshtoken > .refreshtoken && npm run start" ]
+CMD [ "sh", "-c", "echo $refreshtoken > .refreshtoken && ./start.sh" ]
 
 # usage: 
 # execute the following command:

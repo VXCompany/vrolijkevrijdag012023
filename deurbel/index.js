@@ -13,6 +13,7 @@ const fs = require('fs');
 // === get ring refresh token and initiate the ring api client ===
 
 let ringApiClient = null;
+let refreshToken = null;
 
 let apiClientInitiated = new Promise(async (resolve, reject) => { 
     fs.readFile('.refreshtoken', 'utf8', (err, data) => {
@@ -20,18 +21,31 @@ let apiClientInitiated = new Promise(async (resolve, reject) => {
             throw `Unable to retreive .refreshtoken ${err}`
         }
 
-        ringApiClient = new ringClientApi.RingApi({
-            refreshToken: data.trim()
-        });
+        refreshToken = data.trim();
+        try {
+            ringApiClient = new ringClientApi.RingApi({
+                refreshToken: data.trim()
+            });
 
-        resolve();
+            resolve();
+        }
+        catch (e) {
+            reject();
+        }
     });
 });
 
 // === detect motion ===
 // Lazy-load the history endpoint to prevent DDOSing the Ring API and getting a ban.
 apiClientInitiated.then(async () => {
-    let cameras = await ringApiClient.getCameras();
+    let cameras = null;
+    try {
+        cameras = await ringApiClient.getCameras();
+    }
+    catch (e) {
+        console.log(e);
+        return;
+    }
 
     cameras.forEach(camera => {
         let createFile = (filename, content, cb, err) => {
@@ -59,7 +73,7 @@ apiClientInitiated.then(async () => {
     });
 });
 
-// // === bootstrap the API ===
+// === bootstrap the API ===
 
 const app = express();
 app.use(busboy());
@@ -101,6 +115,21 @@ app.get('/cameras/:cameraId/history', async (req, res) => {
         res.statusCode = 500;
         res.send(e);
     }
+});
+
+app.get('/cameras/:cameraId/history/:historyId', async (req, res) => {
+    let archive = await history.getVideoStream(refreshToken, req.params.historyId);
+    if (!archive) {
+        res.statusCode = 404;
+        res.send({ error: `A recording with event id ${req.params.historyId} does not exist.` });
+        return;
+    }
+
+    var file = fs.readFileSync(`${__dirname}/${archive}`, 'binary');
+
+    res.setHeader('Content-Length', file.length);
+    res.write(file, 'binary');
+    res.end();
 });
 
 app.get('/cameras/:cameraId/livestream', async (req, res) => {
