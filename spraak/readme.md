@@ -51,10 +51,34 @@ bewaar de waardes in name en clientid, die zijn nodig voor de volgende stap.
 
 Aanmaken app service:
 
-Open "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\parameters-for-template-BotApp-with-rg.json" en pas het veld **tenantId** aan naar de clientid van de eerder aangemaakt identy.
+Open "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\parameters-for-template-BotApp-with-rg.json" en pas de volgende velden aan.
+
+- tenantId: clientid van de eerder aangemaakt identy.
 
 
 ```bash
 az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template-BotApp-with-rg.json --parameters .\parameters-for-template-BotApp-with-rg.jsoners-for-template-BotApp-with-rg.json
 
+```
+Aanmaken bot 
+
+Open en pas de volgende velden aan.
+
+- azureBotId: unieke naam (bijv. vxpizzadeliveryguybot + groepsnaam)    
+- appId: clientid van de eerder aangemaakt identy.
+
+```bash
+az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template-AzureBot-with-rg.json --parameters .\parameters-for-template-AzureBot-with-rg.jsons-for-template-AzureBot-with-rg.json
+```
+
+Ga naar de rootfolder van je project:
+
+```bash
+az bot prepare-deploy --lang Csharp --code-dir "." --proj-file-path "<my-cs-proj>"
+```
+
+ZIP de volledige inhoud van de root folder.
+
+```bash
+az webapp deployment source config-zip --resource-group vxpizzadeliveryguyresources --name vxpizzadeliveryguybotservice --src .\vxpizzadeliveryguybot.zipce --src .\vxpizzadeliveryguybot.zip
 ```

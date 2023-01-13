@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "azureBotId": {
-      "value": ""
+      "value": "vxpizzadeliveryguybot"
     },
     "azureBotSku": {
       "value": "S1"
@@ -15,16 +15,16 @@
       "value": ""
     },
     "appType": {
-      "value": "MultiTenant"
+      "value": "UserAssignedMSI"
     },
     "appId": {
-      "value": ""
+      "value": "ae459b04-9f27-4725-86be-4f6ff7ad6fcb"
     },
     "UMSIName": {
-      "value": ""
+      "value": "vxpizzadeliveryguyidentity"
     },
     "UMSIResourceGroupName": {
-      "value": ""
+      "value": "vxpizzadeliveryguyresources"
     },
     "tenantId": {
       "value": ""
