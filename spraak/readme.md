@@ -5,10 +5,10 @@ Zodra er aangebeld wordt moeten we er achter gaan komen wie er bij de deur staat
 
 - *Spreken*: We maken een text to speech engine met azure cognitive services die de text uit het language model omzet naar een audio bestand die we de deurbel kunnen laten afspelen.
 
-- *Analyzeren*: We maken en trainen een language model die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
+- *Analyzeren*: We maken en trainen een language model en een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
 
-# Aanmaken azure resources
-## Wat heb je nodig?
+#Speech engine
+## Aanmaken azure resources
 
 - Azure subscription
 - Azure CLI: https://learn.microsoft.com/en-us/cli/azure/
@@ -29,4 +29,8 @@ Om de service te kunnen gebruiken in code heb je een key nodig, deze kun je via 
 
 ```
 az cognitiveservices account keys list --name vxpizzaguyspeechservice --resource-group vxpizzadeliveryguyresources
+
 ```
+## Resources
+Cognitive service documentatie: https://learn.microsoft.com/nl-NL/azure/cognitive-services/speech-service/
+Mp3 to WAV: https://www.nuget.org/packages/NAudio, https://github.com/naudio/NAudio/blob/master/Docs/ConvertMp3ToWav.md
