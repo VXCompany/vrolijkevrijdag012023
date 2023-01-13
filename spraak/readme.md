@@ -82,3 +82,6 @@ ZIP de volledige inhoud van de root folder.
 ```bash
 az webapp deployment source config-zip --resource-group vxpizzadeliveryguyresources --name vxpizzadeliveryguybotservice --src .\vxpizzadeliveryguybot.zipce --src .\vxpizzadeliveryguybot.zip
 ```
+<mark>
+LET OP: ga naar de configuration van app service in het azure portal en ga naar general settings. Controleer of **stack** op .NET staat en .NET version op .NET 7
+</mark>
