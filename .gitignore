@@ -396,3 +396,26 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech.sln
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/Deployment/parameters.json
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/Deployment/template.json
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/appsettings.Development.json
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/appsettings.json
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/ListenRequest.cs
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/ListResponse.cs
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/Program.cs
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/Sentence.cs
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/SpeechEngine.cs
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech.csproj
+spraak/src/PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/Properties/launchSettings.json
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech.sln
+spraak/src/VX.PizzaDeliveryGuy.Speech/Deployment/parameters.json
+spraak/src/VX.PizzaDeliveryGuy.Speech/Deployment/template.json
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/appsettings.Development.json
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/appsettings.json
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/ListenRequest.cs
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/ListResponse.cs
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/Program.cs
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/Sentence.cs
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/SpeechEngine.cs
+spraak/src/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech.csproj
