@@ -7,24 +7,26 @@ Zodra er aangebeld wordt moeten we er achter gaan komen wie er bij de deur staat
 
 - *Analyzeren*: We maken en trainen een language model die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
 
-# Wat heb je nodig?
+# Aanmaken azure resources
+## Wat heb je nodig?
 
 - Azure subscription
-- Azure CLI
+- Azure CLI: https://learn.microsoft.com/en-us/cli/azure/
 
-`
-az login
+Open een terminal in spraak\src\PizzaDeliveryGuy.Speech\VX.PizzaDeliveryGuy.Speech\Deployment en voer onderstaande azure commando's uit.
+
+```
+az login 
 az group create --name vxpizzadeliveryguyresources --location westeurope
-`
+az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template.json --parameters .\parameters.json.json --parameters .\parameters.json
 
+Please provide string value for 'resourceGroupName' (? for help): vxpizzadeliveryguyresources
+Please provide string value for 'resourceGroupId' (? for help): [id beschikbaar in response van 'az group create']
+```
+Je hebt nu een Azure Cognitive Services resource aangemaakt die je kunt gebruiken voor het omzetten van tekst naar spraak of spraak naar tekst.
 
+Om de service te kunnen gebruiken in code heb je een key nodig, deze kun je via de CLI opvragen met
 
-
-Situaties:
-
-1) Moeder staat voor de deur.
-2) Postbode
-3) Pizza bezorger; niet voor bewoner
-4) Persoon voor wie pizza is belt aan
-5) Mensen die alcohol laten bezorgen
-6) Pizza bezorger: voor bewoner
+```
+az cognitiveservices account keys list --name vxpizzaguyspeechservice --resource-group vxpizzadeliveryguyresources
+```
