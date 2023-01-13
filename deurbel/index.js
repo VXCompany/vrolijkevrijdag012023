@@ -22,18 +22,30 @@ let apiClientInitiated = new Promise(async (resolve, reject) => {
         }
 
         refreshToken = data.trim();
-        ringApiClient = new ringClientApi.RingApi({
-            refreshToken: data.trim()
-        });
+        try {
+            ringApiClient = new ringClientApi.RingApi({
+                refreshToken: data.trim()
+            });
 
-        resolve();
+            resolve();
+        }
+        catch (e) {
+            reject();
+        }
     });
 });
 
 // === detect motion ===
 // Lazy-load the history endpoint to prevent DDOSing the Ring API and getting a ban.
 apiClientInitiated.then(async () => {
-    let cameras = await ringApiClient.getCameras();
+    let cameras = null;
+    try {
+        cameras = await ringApiClient.getCameras();
+    }
+    catch (e) {
+        console.log(e);
+        return;
+    }
 
     cameras.forEach(camera => {
         let createFile = (filename, content, cb, err) => {
@@ -61,7 +73,7 @@ apiClientInitiated.then(async () => {
     });
 });
 
-// // === bootstrap the API ===
+// === bootstrap the API ===
 
 const app = express();
 app.use(busboy());
