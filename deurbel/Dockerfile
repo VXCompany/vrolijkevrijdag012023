@@ -2,7 +2,7 @@ FROM node:16
 
 ENV refreshtoken = ''
 
-RUN apt-get -y update
+RUN apt-get update && apt-get upgrade
 RUN apt-get install -y ffmpeg
 
 WORKDIR /usr/src/app

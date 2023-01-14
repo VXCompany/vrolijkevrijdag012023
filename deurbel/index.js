@@ -1,14 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const busboy = require('connect-busboy');
+import express from "express";
+import bodyParser from "body-parser";
+import busboy from "connect-busboy";
+import path from 'path';
+import ringClientApi from 'ring-client-api';
+import fs from 'fs';
 
-const cameras = require('./module-cameras.js');
-const history = require('./module-history.js');
-const livestream = require('./module-livestream.js');
-const playaudio = require('./module-playaudio.js');
+import cameras from "./module-cameras.js";
+import history from "./module-history.js";
+import livestream from './module-livestream.js';
+import playaudio from './module-playaudio.js';
 
-const ringClientApi = require('ring-client-api');
-const fs = require('fs');
+const __dirname = path.dirname('index.js');
 
 // === get ring refresh token and initiate the ring api client ===
 
