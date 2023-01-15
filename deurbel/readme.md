@@ -64,6 +64,19 @@ Een response van dat endpoint ziet er als volgt uit:
 ...
 ]
 ```
+## Een video van een actuele gebeurtenis ophalen:
+Hier heb je het Id van de gebeurtenis en het id van de camera voor nodig. Die vind je bij het /cameras/{cameraid}/history/{historyid} endpoint. Dit endpoint geeft je een zipfile.
+
+De zipfile bevat:
+
+* De opname als mp4 videobestand
+* Een screenshot van elke halve seconde van het filmpje
+* een mp3 geluidsopname
+
+```powershell
+curl -X GET http://localhost:8080/cameras/124092831/history/7186324359030504000 > result.zip
+```
+
 
 ## Video opnemen
 Je kunt ook on-demand video opnemen van de deurbel. Dat doe je met het /cameras/{id}/livestream endpoint. Dit endpoint geeft je een zipfile.
@@ -78,7 +91,7 @@ Je kunt aangeven hoeveel seconden je wilt opnemen door de `/livestream?seconds=.
 
 Concreet werkt het dus zo:
 ```powershell
-curl -X GET 'http://localhost:8080/cameras/124092831/livestream?seconds=2' > test.zip
+curl -X GET 'http://localhost:8080/cameras/124092831/livestream?seconds=2' > result.zip
 ```
 
 ## Audio afspelen
@@ -88,7 +101,7 @@ ___**Audio moet in mp4 format zijn!!! Anders werkt het niet.**___
 
 Audio afspelen doe je zo:
 ```powershell
-curl -F file=@hallo.mp4 -H "Content-Type: multipart/form-data" http://localhost:80/cameras/124092831/livestream 
+curl -F file=@hallo.mp4 -H "Content-Type: multipart/form-data" http://localhost:8080/cameras/124092831/livestream 
 ```
 
 Bovenstaand is hetzelfde als dat je in de volgende HTML pagina op submit zou drukken:

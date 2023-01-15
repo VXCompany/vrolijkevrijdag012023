@@ -1,0 +1,7 @@
+.refreshtoken
+.accesstoken
+.DS_Store/
+.DS_Store
+node_modules/
+recordings/
+events.*

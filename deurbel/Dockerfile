@@ -2,18 +2,20 @@ FROM node:16
 
 ENV refreshtoken = ''
 
-RUN apt-get -y update
+RUN apt-get update && apt-get upgrade
 RUN apt-get install -y ffmpeg
 
 WORKDIR /usr/src/app
 
 COPY . .
 
+RUN chmod 704 start.sh
+
 RUN npm install
 
 EXPOSE 80
 
-CMD [ "sh", "-c", "echo $refreshtoken > .refreshtoken && npm run start" ]
+CMD [ "sh", "-c", "echo $refreshtoken > .refreshtoken && ./start.sh" ]
 
 # usage: 
 # execute the following command:

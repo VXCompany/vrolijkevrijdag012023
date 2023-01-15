@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceName": {
+      "value": "vxpizzadeliveryguybotservice"
+    },
+    "existingAppServicePlanName": {
+      "value": ""
+    },
+    "existingAppServicePlanLocation": {
+      "value": ""
+    },
+    "newAppServicePlanName": {
+      "value": "vxpizzadeliveryguybotserviceplan"
+    },
+    "newAppServicePlanLocation": {
+      "value": "westeurope"
+    },
+    "newAppServicePlanSku": {
+      "value": {
+        "name": "S1",
+        "tier": "Standard",
+        "size": "S1",
+        "family": "S",
+        "capacity": 1
+      }
+    },
+    "appType": {
+      "value": "UserAssignedMSI"
+    },
+    "appId": {
+      "value": ""
+    },
+    "appSecret": {
+      "value": ""
+    },
+    "UMSIName": {
+      "value": "vxpizzadeliveryguyidentity"
+    },
+    "UMSIResourceGroupName": {
+      "value": "vxpizzadeliveryguyresources"
+    },
+    "tenantId": {
+      "value": "ae459b04-9f27-4725-86be-4f6ff7ad6fcb"
+    }
+  }
+}
