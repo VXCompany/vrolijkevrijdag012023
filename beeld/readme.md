@@ -9,8 +9,11 @@ Benodigd zijn vs code (met de extention: Visual Studio Code Dev Containers)
 
 2. Kies "Reopen in Container"
 
-vs code is nu gestart en verbonden met de docker container. Als het goed is gestart in de folder "/workspaces/vrolijkevrijdag012023/beeld/home" welke gedeeld is als docker volume.
+vs code is nu gestart en verbonden met de docker container. 
+De folder "/workspaces/vrolijkevrijdag012023/beeld/home" is gedeeld en gemount als docker volume, waardoor wijzigingen direct zowel in de host als de container zichtbaar zijn.
 
-3. Je kunt beginnen met het lezen en uitvoeren van de jupiter notebooks in het mapje basics om de basics van tensorflow te leren.
+3. Je kunt beginnen met het lezen en uitvoeren van de jupiter notebooks in het mapje 'basics' om de basics van tensorflow te leren.
 
-4. In de folder image_class is een voorbeeld van het classificeren van images uitgelegd. Het eindresultaat is een tensorflow model.
+4. In de folder 'image_classification' is een voorbeeld van het classificeren van images met tensorflow uitgelegd. Het eindresultaat is een tensorflow model.
+
+5. In de folder 'server' zit de code om een tensorflow model te hosten als web api.Lees de readme.md in deze folder voor verdere instructies.
