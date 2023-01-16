@@ -49,7 +49,7 @@ az identity create --resource-group vxpizzadeliveryguyresources --name vxpizzade
 ```
 bewaar de waardes in name en clientid, die zijn nodig voor de volgende stap.
 
-Aanmaken app service:
+#### Aanmaken app service:
 
 Open "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\parameters-for-template-BotApp-with-rg.json" en pas de volgende velden aan.
 
@@ -60,7 +60,7 @@ Open "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\Deployment
 az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template-BotApp-with-rg.json --parameters .\parameters-for-template-BotApp-with-rg.jsoners-for-template-BotApp-with-rg.json
 
 ```
-Aanmaken bot 
+#### Aanmaken bot 
 
 Open en pas de volgende velden aan.
 
@@ -85,3 +85,16 @@ az webapp deployment source config-zip --resource-group vxpizzadeliveryguyresour
 <mark>
 LET OP: ga naar de configuration van app service in het azure portal en ga naar general settings. Controleer of **stack** op .NET staat en .NET version op .NET 7
 </mark>
+
+## Een gesprek starten met de bot
+
+Uiteraard is het de bedoeling om de bot te laten reageren op wat de persoon aan de deur zegt tegen de deurbel.
+
+Het resultaat van de speech-to-text service moet daarom naar de bot gestuurd worden. En het antwoord van de bot moet via de text-to-speech service weer naar de RING deurbel worden gestuurd.
+
+Om een conversatie met de bot te voeren kun je gebruik maken van de direct line API.
+
+Authenticate: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-authentication?view=azure-bot-service-4.0 <br>
+Start een conversatie: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-start-conversation?view=azure-bot-service-4.0 <br>
+Stuur een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-send-activity?view=azure-bot-service-4.0 <br>
+Ontvang een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-receive-activities?view=azure-bot-service-4.0 <br>
