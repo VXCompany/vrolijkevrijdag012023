@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Http.HttpResults;
-using VX.PizzaDeliveryGuy.Speech;
+using VX.PizzaDeliveryGuy.Speech.SpeechToText;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +13,7 @@ app.MapPost("/speak", async (SpeakRequest sentence) => {
     await speechEngine.Speak(sentence);
     return "Text processed";
 });
+
 app.MapPost("/listen", async (ListenRequest listenRequest) =>
 {
     SpeechEngine speechEngine = new SpeechEngine();
