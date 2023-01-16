@@ -40,6 +40,9 @@ Volg de instructie op https://learn.microsoft.com/nl-nl/azure/bot-service/bot-se
 
 Download en installeer de bot framework emulator om je bot lokaal te testen: https://github.com/Microsoft/BotFramework-Emulator/releases/tag/v4.14.1
 
+### Trainen bot
+De bot die je hebt gemaakt met dit template doet niks anders dan echo'en wat jij tegen hem zegt. Om de bot slimmer te maken kun je je eigen code schrijven die reageert op de input.
+
 ### Deploy je bot naar Azure
 Open een terminal in "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\"
 
@@ -98,3 +101,5 @@ Authenticate: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-f
 Start een conversatie: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-start-conversation?view=azure-bot-service-4.0 <br>
 Stuur een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-send-activity?view=azure-bot-service-4.0 <br>
 Ontvang een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-receive-activities?view=azure-bot-service-4.0 <br>
+
+Voor inspiratie en een werkend voorbeeld in .NET kun je spieken in de repo folder /spraak/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/. 
