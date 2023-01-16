@@ -5,6 +5,8 @@ Zodra er aangebeld wordt moeten we er achter gaan komen wie er bij de deur staat
 
 - *Analyzeren*: We maken en trainen een language model en een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
 
+De repository bevat werkende code .NET voor alle onderdelen. Probeer uiteraard zelf tot een oplossing te komen, maar schroom niet om de voorbeeldcode te gebruiken voor inspiratie :)
+
 ## Speech engine
 ### Aanmaken azure resources
 
