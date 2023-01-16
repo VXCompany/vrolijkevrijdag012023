@@ -8,14 +8,17 @@ using Microsoft.Bot.Schema;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using VX.PizzaDeliveryGuy.ChatBot.LanguageModel;
 
 namespace VX.PizzaDeliveryGuy.ChatBot.Bots
 {
     public class EchoBot : ActivityHandler
-    {
+    {        
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
         {
-            var replyText = $"Echo: {turnContext.Activity.Text}";
+            LanguageModelClient languageModelClient = new LanguageModelClient();
+
+            var replyText = await languageModelClient.AskQuestion(turnContext.Activity.Text);
             await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
         }
 

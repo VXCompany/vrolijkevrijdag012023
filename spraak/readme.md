@@ -47,7 +47,12 @@ Als je dit extra interessant wilt maken kun je gebruiken van Microsoft Language 
 
 Om dit te doen doe je het volgende:
 
-- 
+- Volg om de juiste resource aan te maken: https://learn.microsoft.com/nl-nl/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=rest
+- Ga naar: https://language.cognitive.azure.com/
+- Maak een nieuwe "custom question answering" project aan en volg de instructies om azure search te koppelen
+- Voeg de dataset toe via "add source"
+
+Optioneel, 
 
 ### Deploy je bot naar Azure
 Open een terminal in "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\"
