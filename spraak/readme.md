@@ -52,7 +52,56 @@ Om dit te doen doe je het volgende:
 - Maak een nieuwe "custom question answering" project aan en volg de instructies om azure search te koppelen
 - Voeg de dataset toe via "add source"
 
-Optioneel, 
+In language studio kun je nu op basis van de geimporteerde teksten dialogen creeeren, speel hiermee en probeer een eenvoudige dialoog tussen persoon bij de deur en de bot te maken. Denk aan:
+
+- Persoon bij de deur is de pizzabezorger
+- Persoon bij de deur is iemand anders
+
+Wil je testen, deploy dan je knowledgebase. Dit levert een URL en een key op die je kunt integreren in de chatbot. Bijv:
+
+URL: https://vxpizzadeliveryguytextanalysys.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=vxpizzadeliveryguyquestionmodel&api-version=2021-10-01&deploymentName=production
+(Header) Ocp-Apim-Subscription-Key: ce2178f90b40406294c76b4896d64ebe
+
+
+#### De bot verbinden met je language model
+Om je dialogen te integreren in je bot gebruik je de beschikbaar gemaakte url en key, deze accepteert een POST met een JSON body
+```JSON
+{
+    "question": "de pizza bezorger"
+}
+```
+En levert een JSON object op met mogelijke prompts
+
+```JSON
+{
+	"answers": [
+		{
+			"questions": [
+				"Ik kom een pizza bezorgen"
+			],
+			"answer": "pizza bezorger",
+			"confidenceScore": 1.0,
+			"id": 1,
+			"source": "pizzaguy_data.xlsx",
+			"metadata": {
+				"system_metadata_qna_edited_manually": "true"
+			},
+			"dialog": {
+				"isContextOnly": false,
+				"prompts": [
+					{
+						"displayOrder": 0,
+						"qnaId": 5,
+						"displayText": "Voor wie is de pizza"
+					}
+				]
+			}
+		}
+	]
+}
+```
+
+Gebruik deze JSON om je antwoord door je chatbot te laten geven.
 
 ### Deploy je bot naar Azure
 Open een terminal in "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\"
