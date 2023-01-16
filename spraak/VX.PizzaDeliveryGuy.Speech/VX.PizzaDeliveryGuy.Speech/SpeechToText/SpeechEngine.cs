@@ -44,7 +44,7 @@ namespace VX.PizzaDeliveryGuy.Speech.SpeechToText
 
             var botConversationResult = await botConversation.SendMessage("deurbel", speechRecognitionResult.Text);
 
-            return new ListResponse(speechRecognitionResult.Text);
+            return new ListResponse(botConversationResult);
         }
 
         private static void CreateWaveFileFromSourceAudio(ListenRequest listenRequest, string OutputAudioFilePath)
