@@ -43,6 +43,12 @@ Download en installeer de bot framework emulator om je bot lokaal te testen: htt
 ### Trainen bot
 De bot die je hebt gemaakt met dit template doet niks anders dan echo'en wat jij tegen hem zegt. Om de bot slimmer te maken kun je je eigen code schrijven die reageert op de input.
 
+Als je dit extra interessant wilt maken kun je gebruiken van Microsoft Language Studio en dialogen trainen o.b.v. een dataset met voorbeeldzinnen. In de repo vind je een dataset die je kunt gebruiken: pizzaguy_data.csv.
+
+Om dit te doen doe je het volgende:
+
+- 
+
 ### Deploy je bot naar Azure
 Open een terminal in "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\"
 
