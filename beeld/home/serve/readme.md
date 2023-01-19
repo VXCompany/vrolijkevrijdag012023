@@ -1,4 +1,4 @@
-# Start serving the 'trooper-model' model as a web-api and test it
+# Start serving the 'trooper-model' model using a python web-api framework and test it
 
 Following these 3 steps will give you:
 
