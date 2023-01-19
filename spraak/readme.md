@@ -23,9 +23,12 @@ Voor elk team zijn er de resources die we nodig hebben voor de complete solution
 - Team 2: https://portal.azure.com/#@vxcompany.com/resource/subscriptions/39740059-f78d-4d22-8dd6-8f2dffb4a915/resourceGroups/VrolijkTeam2/overview
 - Team 3: https://portal.azure.com/#@vxcompany.com/resource/subscriptions/39740059-f78d-4d22-8dd6-8f2dffb4a915/resourceGroups/VrolijkTeam3/overview
 
-De volgende resources zijn aangemaakt:
+De volgende resources zijn aangemaakt om te gaan gebruiken:
 
 - Cognitive services
+- Azure App Service t.b.v. bot
+- Azure identity t.b.v. bot
+- Azure Bot
 
 Als je deze handleiding volgt na de vrolijke vrijdag kun je zelf de resources aanmaken door de stappen in [Azure resources aanmaken](#section6) te volgen.
 
