@@ -2,10 +2,9 @@
 
 - [Wie staat daar voor de deur?](#section1)
 - [Azure resource groups](#section2)
-- [Luisteren](#section3)
-- [Praten](#section4)
-- [Azure chatbot](#section5)
-- [Azure resources aanmaken](#section6)
+- [Luisteren en praten](#section3)
+- [Azure chatbot](#section4)
+- [Azure resources aanmaken](#section5)
 
 
 # <a name="section1"></a> Wie staat daar voor de deur?
@@ -56,7 +55,7 @@ Java: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/
 C#: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windows%2Cterminal&pivots=programming-language-csharp
 Java: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windows%2Cterminal&pivots=programming-language-java
 
-# <a name="section5"></a> Azure chatbot
+# <a name="section4"></a> Azure chatbot
 Er moet natuurlijk iets gebeuren met de tekst die uit de deurbel komt om een antwoord te bepalen die weer naar de deurbel kunnen sturen. Je kunt dat natuurlijk eenvoudig doen door in je code op bepaalde input te controleren en vaste teksten terug te geven. Dat is wellicht een goede start. In deze workshop gaan we dit doen met een Azure bot en een getrainde "knowledge base".
 
 ## Benodigheden Visual Studio of VSCode
@@ -128,46 +127,16 @@ En levert een JSON object op met mogelijke prompts
 Gebruik deze JSON om je antwoord door je chatbot te laten geven.
 
 ### Deploy je bot naar Azure
-Open een terminal in "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\"
-
-```bash
-az login
-az identity create --resource-group vxpizzadeliveryguyresources --name vxpizzadeliveryguyidentity
-```
-bewaar de waardes in name en clientid, die zijn nodig voor de volgende stap.
-
-#### Aanmaken app service:
-
-Open "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\parameters-for-template-BotApp-with-rg.json" en pas de volgende velden aan.
-
-- tenantId: clientid van de eerder aangemaakt identy.
-
-
-```bash
-az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template-BotApp-with-rg.json --parameters .\parameters-for-template-BotApp-with-rg.jsoners-for-template-BotApp-with-rg.json
-
-```
-#### Aanmaken bot 
-
-Open en pas de volgende velden aan.
-
-- azureBotId: unieke naam (bijv. vxpizzadeliveryguybot + groepsnaam)    
-- appId: clientid van de eerder aangemaakt identy.
-
-```bash
-az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template-AzureBot-with-rg.json --parameters .\parameters-for-template-AzureBot-with-rg.jsons-for-template-AzureBot-with-rg.json
-```
-
 Ga naar de rootfolder van je project:
 
 ```bash
 az bot prepare-deploy --lang Csharp --code-dir "." --proj-file-path "<my-cs-proj>"
 ```
 
-ZIP de volledige inhoud van de root folder.
+ZIP de volledige inhoud van de root folder naar *vxpizzadeliveryguybot.zip*
 
 ```bash
-az webapp deployment source config-zip --resource-group vxpizzadeliveryguyresources --name vxpizzadeliveryguybotservice --src .\vxpizzadeliveryguybot.zipce --src .\vxpizzadeliveryguybot.zip
+az webapp deployment source config-zip --resource-group VrolijkTeam1 --name vxpizzadeliveryguybotserviceteam1 --src .\vxpizzadeliveryguybot.zip
 ```
 <mark>
 LET OP: ga naar de configuration van app service in het azure portal en ga naar general settings. Controleer of **stack** op .NET staat en .NET version op .NET 7
@@ -188,7 +157,7 @@ Ontvang een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-ap
 
 Voor inspiratie en een werkend voorbeeld in .NET kun je spieken in de repo folder /spraak/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/. 
 
-# <a name="section6"></a> Azure resources aanmaken
+# <a name="section5"></a> Azure resources aanmaken
 
 Benodigdheden:
 - Azure subscription
@@ -211,4 +180,35 @@ Om de service te kunnen gebruiken in code heb je een key nodig, deze kun je via 
 ```bash
 az cognitiveservices account keys list --name vxpizzaguyspeechservice --resource-group vxpizzadeliveryguyresources
 
+```
+
+## Chatbot resources
+Open een terminal in "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\"
+
+```bash
+az login
+az identity create --resource-group vxpizzadeliveryguyresources --name vxpizzadeliveryguyidentity
+```
+bewaar de waardes in name en clientid, die zijn nodig voor de volgende stap.
+
+#### Aanmaken app service:
+
+Open "\spraak\VX.PizzaDeliveryGuy.ChatBot\VX.PizzaDeliveryGuy.ChatBot\DeploymentTemplates\DeployUseExistResourceGroup\parameters-for-template-BotApp-with-rg.json" en pas de volgende velden aan.
+
+- tenantId: clientid van de eerder aangemaakt identy.
+
+
+```bash
+az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template-BotApp-with-rg.json --parameters .\parameters-for-template-BotApp-with-rg.json
+
+```
+#### Aanmaken bot 
+
+Open en pas de volgende velden aan.
+
+- azureBotId: unieke naam (bijv. vxpizzadeliveryguybot + groepsnaam)    
+- appId: clientid van de eerder aangemaakt identy.
+
+```bash
+az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template-AzureBot-with-rg.json --parameters .\parameters-for-template-AzureBot-with-rg.json
 ```
