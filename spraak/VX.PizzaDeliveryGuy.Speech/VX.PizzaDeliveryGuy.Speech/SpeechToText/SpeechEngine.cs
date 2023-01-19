@@ -7,7 +7,7 @@ namespace VX.PizzaDeliveryGuy.Speech.SpeechToText
 {
     public class SpeechEngine
     {
-        private const string KEY = "da6641802edd4dd7be98b9b03dcb2f22";
+        private const string KEY = "9f726dbbb8ac4bddad05bf5e5d39aa08";
         private const string REGION = "westeurope";
         private SpeechConfig speechConfig;
         private BotConversation? botConversation;
