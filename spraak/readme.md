@@ -1,7 +1,7 @@
 # Inhoud
 
 - [Wie staat daar voor de deur?](#section1)
-- [Benodigde resources](#section2)
+- [Azure resource groups](#section2)
 - [Luisteren](#section3)
 - [Praten](#section4)
 - [Azure chatbot](#section5)
@@ -17,51 +17,49 @@ Zodra er aangebeld wordt moeten we er achter gaan komen wie er bij de deur staat
 
 - *Azure Chatbot*: Als we er aan toe komen maken en trainen we een language model en een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
 
-# <a name="section2"></a> Benodigde resources
+# <a name="section2"></a> Azure resource groups
 Voor elk team zijn er de resources die we nodig hebben voor de complete solution aangemaakt zodat deze meteen gebruikt kunnen worden.
 
 - Team 1: https://portal.azure.com/#@vxcompany.com/resource/subscriptions/39740059-f78d-4d22-8dd6-8f2dffb4a915/resourceGroups/VrolijkTeam1/overview
 - Team 2: https://portal.azure.com/#@vxcompany.com/resource/subscriptions/39740059-f78d-4d22-8dd6-8f2dffb4a915/resourceGroups/VrolijkTeam2/overview
 - Team 3: https://portal.azure.com/#@vxcompany.com/resource/subscriptions/39740059-f78d-4d22-8dd6-8f2dffb4a915/resourceGroups/VrolijkTeam3/overview
 
+De volgende resources zijn aangemaakt:
+
+- Cognitive services
+
 Als je deze handleiding volgt na de vrolijke vrijdag kun je zelf de resources aanmaken door de stappen in [Azure resources aanmaken](#section6) te volgen.
 
-# <a name="section3"></a> Luisteren
+# <a name="section3"></a> Luisteren en praten
+De bedoeling is dat we de audio die uit de deurbel komt gaan omzetten naar tekst. Voor dit onderdeel maken we gebruik van de speech-to-text service uit Microsoft Cognitive services. We willen natuurlijk ook graag dat de deurbel iets tegen de persoon voor de deur staat zegt. Daarvoor moeten we een audiobestand genereren die weer naar de deurbel API kan worden gestuurd. Hiervoor gebruiken we de text-to-speech service
 
-# <a name="section4"></a> Praten
+## Benodigdheden
+- Cognitive services key, in te zien in het dashboard van je cognitive service resource (vxpdgcogservicesteam1 voor team 1).
+
+## Stappen luisteren
+
+1. Haal de audio op bij de deurbel, volg daarvoor: https://github.com/VXCompany/vrolijkevrijdag012023/tree/main/deurbel
+2. De speech-to-text service verwacht een wave file, maar de deurbel geeft lever een MP3 aan. Voor C# kun je de https://github.com/naudio/NAudio package gebruiken om daarbij te helpen voor Java kun je gebruik maken van Jave http://www.sauronsoftware.it/projects/jave/.
+3. Volg de quickstart om de wave file te analyzeren.
+
+### Quickstarts
+C#: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-csharp <br>
+Java: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-java
+
+## Stappen praten
+
+1. Volg de quickstart om de tekst die je wilt laten uitspreken om te zetten naar audio.
+2. De text-to-speech service levert een WAV file op, deze moet voor de deurbel omgezet worden naar een MP4 bestand. Deze kan opnieuw door NAudio of Jave worden gemaakt.
+3. Stuur de audio file naar de deurbel API.
+
+### Quickstarts
+C#: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windows%2Cterminal&pivots=programming-language-csharp
+Java: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windows%2Cterminal&pivots=programming-language-java
 
 # <a name="section5"></a> Azure chatbot
+Er moet natuurlijk iets gebeuren met de tekst die uit de deurbel komt om een antwoord te bepalen die weer naar de deurbel kunnen sturen. Je kunt dat natuurlijk eenvoudig doen door in je code op bepaalde input te controleren en vaste teksten terug te geven. Dat is wellicht een goede start. In deze workshop gaan we dit doen met een Azure bot en een getrainde "knowledge base".
 
-# <a name="section6"></a> Azure resources aanmaken
-
-Benodigdheden:
-- Azure subscription
-- Azure CLI: https://learn.microsoft.com/en-us/cli/azure/
-
-Open een terminal in **"\spraak\VX.PizzaDeliveryGuy.Speech\Deployment"** en voer onderstaande azure commando's uit.
-
-```bash
-az login
-az group create --name vxpizzadeliveryguyresources --location westeurope
-az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template.json --parameters .\parameters.json
-
-Please provide string value for 'resourceGroupName' (? for help): vxpizzadeliveryguyresources
-Please provide string value for 'resourceGroupId' (? for help): [id beschikbaar in response van 'az group create']
-```
-Je hebt nu een Azure Cognitive Services resource aangemaakt die je kunt gebruiken voor het omzetten van tekst naar spraak of spraak naar tekst.
-
-Om de service te kunnen gebruiken in code heb je een key nodig, deze kun je via de CLI opvragen met
-
-```bash
-az cognitiveservices account keys list --name vxpizzaguyspeechservice --resource-group vxpizzadeliveryguyresources
-
-```
-### Resources
-Cognitive service documentatie: https://learn.microsoft.com/nl-NL/azure/cognitive-services/speech-service/ <br />
-Mp3 to WAV: https://www.nuget.org/packages/NAudio, https://github.com/naudio/NAudio/blob/master/Docs/ConvertMp3ToWav.md
-
-## Chatbot 
-### Benodigheden Visual Studio of VSCode
+## Benodigheden Visual Studio of VSCode
 Volg de instructie op https://learn.microsoft.com/nl-nl/azure/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0&tabs=csharp%2Cvs voor het maken van een basis chatbot.
 
 Download en installeer de bot framework emulator om je bot lokaal te testen: https://github.com/Microsoft/BotFramework-Emulator/releases/tag/v4.14.1
@@ -189,3 +187,28 @@ Stuur een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/
 Ontvang een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-receive-activities?view=azure-bot-service-4.0 <br>
 
 Voor inspiratie en een werkend voorbeeld in .NET kun je spieken in de repo folder /spraak/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/. 
+
+# <a name="section6"></a> Azure resources aanmaken
+
+Benodigdheden:
+- Azure subscription
+- Azure CLI: https://learn.microsoft.com/en-us/cli/azure/
+
+Open een terminal in **"\spraak\VX.PizzaDeliveryGuy.Speech\Deployment"** en voer onderstaande azure commando's uit.
+
+```bash
+az login
+az group create --name vxpizzadeliveryguyresources --location westeurope
+az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template.json --parameters .\parameters.json
+
+Please provide string value for 'resourceGroupName' (? for help): vxpizzadeliveryguyresources
+Please provide string value for 'resourceGroupId' (? for help): [id beschikbaar in response van 'az group create']
+```
+Je hebt nu een Azure Cognitive Services resource aangemaakt die je kunt gebruiken voor het omzetten van tekst naar spraak of spraak naar tekst.
+
+Om de service te kunnen gebruiken in code heb je een key nodig, deze kun je via de CLI opvragen met
+
+```bash
+az cognitiveservices account keys list --name vxpizzaguyspeechservice --resource-group vxpizzadeliveryguyresources
+
+```
