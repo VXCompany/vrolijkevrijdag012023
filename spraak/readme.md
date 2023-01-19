@@ -1,14 +1,38 @@
-# Wie staat daar voor de deur?
+# Inhoud
+
+- [Wie staat daar voor de deur?](#section1)
+- [Benodigde resources](#section2)
+- [Luisteren](#section3)
+- [Praten](#section4)
+- [Azure chatbot](#section5)
+- [Azure resources aanmaken](#section6)
+
+
+# <a name="section1"></a> Wie staat daar voor de deur?
 Zodra er aangebeld wordt moeten we er achter gaan komen wie er bij de deur staat en deze persoon op de juiste manier beantwoorden. Om dat te bereiken gaan we een drietal onderdelen bouwen.
 
-- *Luisteren en spreken*: We maken een speech to text engine met azure cognitive services die de audio uit de deurbel omzet naar geschreven tekst en die de geschreven text omzet naar een audio bestand die we de deurbel kunnen laten afspelen.
+- *Luisteren*: We maken een speech to text engine met azure cognitive services die de audio uit de deurbel omzet naar geschreven tekst zodat je je code een antwoord kan laten geven.
 
-- *Analyzeren*: We maken en trainen een language model en een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
+- *Praten*: We maken een  text to speech engine die het antwoord dat gegeven moet worden omzet naar  een audiofile die naar de deurbel gestuurd kan worden.
 
-De repository bevat werkende code .NET voor alle onderdelen. Probeer uiteraard zelf tot een oplossing te komen, maar schroom niet om de voorbeeldcode te gebruiken voor inspiratie :)
+- *Azure Chatbot*: Als we er aan toe komen maken en trainen we een language model en een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
 
-## Speech engine
-### Aanmaken azure resources
+# <a name="section2"></a> Benodigde resources
+Voor elk team zijn er de resources die we nodig hebben voor de complete solution aangemaakt zodat deze meteen gebruikt kunnen worden.
+
+- Team 1: https://portal.azure.com/#@vxcompany.com/resource/subscriptions/39740059-f78d-4d22-8dd6-8f2dffb4a915/resourceGroups/VrolijkTeam1/overview
+- Team 2: https://portal.azure.com/#@vxcompany.com/resource/subscriptions/39740059-f78d-4d22-8dd6-8f2dffb4a915/resourceGroups/VrolijkTeam2/overview
+- Team 3: https://portal.azure.com/#@vxcompany.com/resource/subscriptions/39740059-f78d-4d22-8dd6-8f2dffb4a915/resourceGroups/VrolijkTeam3/overview
+
+Als je deze handleiding volgt na de vrolijke vrijdag kun je zelf de resources aanmaken door de stappen in [Azure resources aanmaken](#section6) te volgen.
+
+# <a name="section3"></a> Luisteren
+
+# <a name="section4"></a> Praten
+
+# <a name="section5"></a> Azure chatbot
+
+# <a name="section6"></a> Azure resources aanmaken
 
 Benodigdheden:
 - Azure subscription
@@ -17,9 +41,9 @@ Benodigdheden:
 Open een terminal in **"\spraak\VX.PizzaDeliveryGuy.Speech\Deployment"** en voer onderstaande azure commando's uit.
 
 ```bash
-az login 
+az login
 az group create --name vxpizzadeliveryguyresources --location westeurope
-az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template.json --parameters .\parameters.json.json --parameters .\parameters.json
+az deployment group create --resource-group vxpizzadeliveryguyresources --template-file .\template.json --parameters .\parameters.json
 
 Please provide string value for 'resourceGroupName' (? for help): vxpizzadeliveryguyresources
 Please provide string value for 'resourceGroupId' (? for help): [id beschikbaar in response van 'az group create']
