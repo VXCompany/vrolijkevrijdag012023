@@ -15,7 +15,7 @@ Zodra er aangebeld wordt moeten we er achter gaan komen wie er bij de deur staat
 
 - *Praten*: We maken een  text to speech engine die het antwoord dat gegeven moet worden omzet naar  een audiofile die naar de deurbel gestuurd kan worden.
 
-- *Zure Chatbot*: Als we er aan toe komen maken en trainen we een language model en een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
+- *Azure Chatbot*: Als we er aan toe komen maken en trainen we een language model en een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
 
 # <a name="section2"></a> Benodigde resources
 Voor elk team zijn er de resources die we nodig hebben voor de complete solution aangemaakt zodat deze meteen gebruikt kunnen worden.
