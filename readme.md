@@ -20,6 +20,10 @@ In de essentie zal de oplossing er als volgt uit gaan zien. Er zijn om te beginn
 * Azure Cognitive services om spraak naar audio om te zetten. (Aanroepen en gaan!!)
 * Azure Bot om een chatbot te bouwen. Aan jou de taak om deze juist te configureren.
 
+Alle componenten bij elkaar zien er als volgt uit:
+
+![Overzicht infra](/infra.jpg "Overzicht infra")
+
 In de totaaloplossingen zullen de componenten als volgt met elkaar communiceren:
 
 ![Sequence diagram van de architectuur](/sequence-diagram.jpeg "Sequence diagram van de architectuur")
