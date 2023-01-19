@@ -4,7 +4,7 @@
 - [Azure resource groups](#section2)
 - [Luisteren en praten](#section3)
 - [Azure chatbot](#section4)
-- [Azure resources aanmaken](#section5)
+- [OPTIONEEL: Azure resources aanmaken](#section5)
 
 
 # <a name="section1"></a> Wie staat daar voor de deur?
@@ -162,7 +162,7 @@ En levert een JSON object op met mogelijke prompts
 
 Gebruik deze JSON om je antwoord door je chatbot te laten geven.
 
-# <a name="section5"></a> Azure resources aanmaken
+# <a name="section5"></a>OPTIONEEL: Azure resources aanmaken
 
 Benodigdheden:
 - Azure subscription
