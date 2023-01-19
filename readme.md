@@ -17,8 +17,8 @@ In de essentie zal de oplossing er als volgt uit gaan zien. Er zijn om te beginn
 * Een facade voor de Ring API die het interacteren met de deurbel drastisch vereenvoudigt. (Is voor je opgespind. Url krijg je van Albert)
 * -- Jullie pizza-guy-applicatie --
 * Een gemodificeerde REST API + Tensorflow waarmee pizzadozen in beeld herkend kunnen worden. Jouw taak om deze juist te trainen.
-* Azure Cognitive services om spraak naar audio om te zetten. 
-* Azure Bot om een chatbot te bouwen
+* Azure Cognitive services om spraak naar audio om te zetten. (Aanroepen en gaan!!)
+* Azure Bot om een chatbot te bouwen. Aan jou de taak om deze juist te configureren.
 
 In de totaaloplossingen zullen de componenten als volgt met elkaar communiceren:
 
