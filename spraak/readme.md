@@ -8,13 +8,15 @@
 
 
 # <a name="section1"></a> Wie staat daar voor de deur?
-Zodra er aangebeld wordt moeten we er achter gaan komen wie er bij de deur staat en deze persoon op de juiste manier beantwoorden. Om dat te bereiken gaan we een drietal onderdelen bouwen.
+Zodra er aangebeld wordt moeten we er achter gaan komen wie er bij de deur staat en deze persoon op de juiste manier beantwoorden. Om dat te bereiken gaan we een aantal onderdelen bouwen.
 
 - *Luisteren*: We maken een speech to text engine met azure cognitive services die de audio uit de deurbel omzet naar geschreven tekst zodat je je code een antwoord kan laten geven.
 
 - *Praten*: We maken een  text to speech engine die het antwoord dat gegeven moet worden omzet naar  een audiofile die naar de deurbel gestuurd kan worden.
 
-- *Azure Chatbot*: Als we er aan toe komen maken en trainen we een language model en een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen.
+- *Azure Chatbot*: We maken een chatbot die ons kan helpen te bepalen wie er voor de deur staat en welke vragen we moeten stellen. 
+
+- *Custom Question Answering*: Als we er aan toe komen maken en trainen we een language model die door de chatbot gebruikt kan worden om de juiste vragen te stellen o.b.v. de input vanuit de speech-to-text service.
 
 # <a name="section2"></a> Azure resource groups
 Voor elk team zijn er de resources die we nodig hebben voor de complete solution aangemaakt zodat deze meteen gebruikt kunnen worden.
