@@ -8,6 +8,22 @@ Deze kennisdag staat in het teken van IoT en Machine Learning. Je gaat:
 * De pizza-bezorger herkennen met AI. Daarover hier meer: ([readme.md](https://github.com/VXCompany/vrolijkevrijdag012023/tree/main/beeld))
 * De deurbel laten praten met de bezorger. Daarover hier meer: ([readme.md](https://github.com/VXCompany/vrolijkevrijdag012023/tree/main/spraak))
 
+## Architectuur
+
+In de essentie zal de oplossing er als volgt uit gaan zien. Er zijn om te beginnen een aantal componenten:
+
+* De deurbel
+* De API van Ring die de communicatie met de deurbel mogelijk maakt. (Werkt op basis van RTP, WebSockets, en REST)
+* Een facade voor de Ring API die het interacteren met de deurbel drastisch vereenvoudigt. (Is voor je opgespind. Url krijg je van Albert)
+* -- Jullie pizza-guy-applicatie --
+* Een gemodificeerde REST API + Tensorflow waarmee pizzadozen in beeld herkend kunnen worden. Jouw taak om deze juist te trainen.
+* Azure Cognitive services om spraak naar audio om te zetten. 
+* Azure Bot om een chatbot te bouwen
+
+In de totaaloplossingen zullen de componenten als volgt met elkaar communiceren:
+
+![Sequence diagram van de architectuur](/sequence-diagram.jpeg "Sequence diagram van de architectuur")
+
 ## Getting started (deel 1 van de workshop)
 
 Het is niet het doel van deze workshop dat je leert hoe je een deurbel aanstuurt. De focus ligt op het Machine Learning gedeelte. Daarom vind je hier de code hoe je eenvoudig een antwoordapparaat maakt van je ring-deurbel.
