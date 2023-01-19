@@ -63,6 +63,21 @@ Volg de instructie op https://learn.microsoft.com/nl-nl/azure/bot-service/bot-se
 
 Download en installeer de bot framework emulator om je bot lokaal te testen: https://github.com/Microsoft/BotFramework-Emulator/releases/tag/v4.14.1
 
+## Een gesprek starten met de bot
+
+Uiteraard is het de bedoeling om de bot te laten reageren op wat de persoon aan de deur zegt tegen de deurbel.
+
+Het resultaat van de speech-to-text service moet daarom naar de bot gestuurd worden. En het antwoord van de bot moet via de text-to-speech service weer naar de RING deurbel worden gestuurd.
+
+Om een conversatie met de bot te voeren kun je gebruik maken van de direct line API.
+
+Authenticate: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-authentication?view=azure-bot-service-4.0 <br>
+Start een conversatie: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-start-conversation?view=azure-bot-service-4.0 <br>
+Stuur een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-send-activity?view=azure-bot-service-4.0 <br>
+Ontvang een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-receive-activities?view=azure-bot-service-4.0 <br>
+
+Voor inspiratie en een werkend voorbeeld in .NET kun je spieken in de repo folder /spraak/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/. 
+
 ### Trainen bot
 De bot die je hebt gemaakt met dit template doet niks anders dan echo'en wat jij tegen hem zegt. Om de bot slimmer te maken kun je je eigen code schrijven die reageert op de input.
 
@@ -141,21 +156,6 @@ az webapp deployment source config-zip --resource-group VrolijkTeam1 --name vxpi
 <mark>
 LET OP: ga naar de configuration van app service in het azure portal en ga naar general settings. Controleer of **stack** op .NET staat en .NET version op .NET 7
 </mark>
-
-## Een gesprek starten met de bot
-
-Uiteraard is het de bedoeling om de bot te laten reageren op wat de persoon aan de deur zegt tegen de deurbel.
-
-Het resultaat van de speech-to-text service moet daarom naar de bot gestuurd worden. En het antwoord van de bot moet via de text-to-speech service weer naar de RING deurbel worden gestuurd.
-
-Om een conversatie met de bot te voeren kun je gebruik maken van de direct line API.
-
-Authenticate: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-authentication?view=azure-bot-service-4.0 <br>
-Start een conversatie: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-start-conversation?view=azure-bot-service-4.0 <br>
-Stuur een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-send-activity?view=azure-bot-service-4.0 <br>
-Ontvang een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-receive-activities?view=azure-bot-service-4.0 <br>
-
-Voor inspiratie en een werkend voorbeeld in .NET kun je spieken in de repo folder /spraak/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/. 
 
 # <a name="section5"></a> Azure resources aanmaken
 
