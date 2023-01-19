@@ -58,10 +58,28 @@ Java: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/
 # <a name="section4"></a> Azure chatbot
 Er moet natuurlijk iets gebeuren met de tekst die uit de deurbel komt om een antwoord te bepalen die weer naar de deurbel kunnen sturen. Je kunt dat natuurlijk eenvoudig doen door in je code op bepaalde input te controleren en vaste teksten terug te geven. Dat is wellicht een goede start. In deze workshop gaan we dit doen met een Azure bot en een getrainde "knowledge base".
 
-## Benodigheden Visual Studio of VSCode
-Volg de instructie op https://learn.microsoft.com/nl-nl/azure/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0&tabs=csharp%2Cvs voor het maken van een basis chatbot.
+## Echo bot in .NET
+https://github.com/VXCompany/vrolijkevrijdag012023/tree/main/spraak/VX.PizzaDeliveryGuy.Bot bevat een 'echo bot' gemaakt in .NET, deze bot kan gebruikt worden als basis voor je eigen bot. 
+
+Voor java kun je de instructies volgen in: https://learn.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0&tabs=java%2Cvs om een bot te maken. 
 
 Download en installeer de bot framework emulator om je bot lokaal te testen: https://github.com/Microsoft/BotFramework-Emulator/releases/tag/v4.14.1
+
+## Deploy je bot naar Azure
+Ga naar de rootfolder van je project:
+
+```bash
+az bot prepare-deploy --lang Csharp --code-dir "." --proj-file-path "<my-cs-proj>"
+```
+
+ZIP de volledige inhoud van de root folder naar *vxpizzadeliveryguybot.zip*
+
+```bash
+az webapp deployment source config-zip --resource-group VrolijkTeam1 --name vxpizzadeliveryguybotserviceteam1 --src .\vxpizzadeliveryguybot.zip
+```
+<mark>
+LET OP: ga naar de configuration van app service in het azure portal en ga naar general settings. Controleer of **stack** op .NET staat en .NET version op .NET 6 of 7 of op Java voor een bot in java.
+</mark>
 
 ## Een gesprek starten met de bot
 
@@ -78,7 +96,7 @@ Ontvang een bericht: https://learn.microsoft.com/en-us/azure/bot-service/rest-ap
 
 Voor inspiratie en een werkend voorbeeld in .NET kun je spieken in de repo folder /spraak/VX.PizzaDeliveryGuy.Speech/VX.PizzaDeliveryGuy.Speech/. 
 
-### Trainen bot
+## Trainen bot
 De bot die je hebt gemaakt met dit template doet niks anders dan echo'en wat jij tegen hem zegt. Om de bot slimmer te maken kun je je eigen code schrijven die reageert op de input.
 
 Als je dit extra interessant wilt maken kun je gebruiken van Microsoft Language Studio en dialogen trainen o.b.v. een dataset met voorbeeldzinnen. In de repo vind je een dataset die je kunt gebruiken: pizzaguy_data.csv.
@@ -101,7 +119,7 @@ URL: https://vxpizzadeliveryguytextanalysys.cognitiveservices.azure.com/language
 (Header) Ocp-Apim-Subscription-Key: ce2178f90b40406294c76b4896d64ebe
 
 
-#### De bot verbinden met je language model
+### De bot verbinden met je language model
 Om je dialogen te integreren in je bot gebruik je de beschikbaar gemaakte url en key, deze accepteert een POST met een JSON body
 ```JSON
 {
@@ -140,22 +158,6 @@ En levert een JSON object op met mogelijke prompts
 ```
 
 Gebruik deze JSON om je antwoord door je chatbot te laten geven.
-
-### Deploy je bot naar Azure
-Ga naar de rootfolder van je project:
-
-```bash
-az bot prepare-deploy --lang Csharp --code-dir "." --proj-file-path "<my-cs-proj>"
-```
-
-ZIP de volledige inhoud van de root folder naar *vxpizzadeliveryguybot.zip*
-
-```bash
-az webapp deployment source config-zip --resource-group VrolijkTeam1 --name vxpizzadeliveryguybotserviceteam1 --src .\vxpizzadeliveryguybot.zip
-```
-<mark>
-LET OP: ga naar de configuration van app service in het azure portal en ga naar general settings. Controleer of **stack** op .NET staat en .NET version op .NET 7
-</mark>
 
 # <a name="section5"></a> Azure resources aanmaken
 
