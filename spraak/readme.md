@@ -120,7 +120,8 @@ Om dit te doen doe je het volgende:
 
 - Volg om de juiste resource aan te maken: https://learn.microsoft.com/nl-nl/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=rest
 - Ga naar: https://language.cognitive.azure.com/
-- Maak een nieuwe "custom question answering" project aan en volg de instructies om azure search te koppelen
+- Selecteer de juiste resource voor je team (vxpizzadeliveryguytextanalisysteam1, vxpizzadeliveryguytextanalisysteam2 of vxpizzadeliveryguytextanalisysteam3)
+- Selecteer het project (vxpizzadeliveryguylanguageteam1,vxpizzadeliveryguylanguageteam2 of vxpizzadeliveryguylanguageteam3)
 - Voeg de dataset toe via "add source"
 
 In language studio kun je nu op basis van de geimporteerde teksten dialogen creeeren, speel hiermee en probeer een eenvoudige dialoog tussen persoon bij de deur en de bot te maken. Denk aan:
@@ -130,7 +131,7 @@ In language studio kun je nu op basis van de geimporteerde teksten dialogen cree
 
 Wil je testen, deploy dan je knowledgebase. Dit levert een URL en een key op die je kunt integreren in de chatbot. Bijv:
 
-URL: https://vxpizzadeliveryguytextanalysys.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=vxpizzadeliveryguyquestionmodel&api-version=2021-10-01&deploymentName=production
+URL: https://vxpizzadeliveryguylanguageteam1.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=vxpizzadeliveryguyquestionmodel&api-version=2021-10-01&deploymentName=production
 (Header) Ocp-Apim-Subscription-Key: ce2178f90b40406294c76b4896d64ebe
 
 
