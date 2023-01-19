@@ -27,10 +27,14 @@ Voor elk team zijn er de resources die we nodig hebben voor de complete solution
 
 De volgende resources zijn aangemaakt om te gaan gebruiken:
 
-- Cognitive services
-- Azure App Service t.b.v. bot
-- Azure identity t.b.v. bot
-- Azure Bot
+- Cognitive services (https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/)
+Voor speech-to-text en text-to-speech.
+
+- Azure Bot (https://learn.microsoft.com/en-us/azure/bot-service/bot-service-overview?WT.mc_id=Portal-Microsoft_Azure_BotService&view=azure-bot-service-4.0)
+Voor het ontwikkelen en hosten van de chatbot
+
+- Language Service (https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/question-answering/overview)
+Voor het kunnen trainen en samenstellen van een "question answering model".
 
 Als je deze handleiding volgt na de vrolijke vrijdag kun je zelf de resources aanmaken door de stappen in [Azure resources aanmaken](#section6) te volgen.
 
@@ -66,6 +70,12 @@ Er moet natuurlijk iets gebeuren met de tekst die uit de deurbel komt om een ant
 ## Echo bot in .NET
 https://github.com/VXCompany/vrolijkevrijdag012023/tree/main/spraak/VX.PizzaDeliveryGuy.Bot bevat een 'echo bot' gemaakt in .NET, deze bot kan gebruikt worden als basis voor je eigen bot. 
 
+Voor elk team is er al een .NET versie gedeployed naar Azure zodat je snel aan de slag kan. 
+
+Team 1: https://vxpizzadeliveryguybotserviceteam1.azurewebsites.net/ <br>
+Team 2: https://vxpizzadeliveryguybotserviceteam2.azurewebsites.net/ <br>
+Team 3: https://vxpizzadeliveryguybotserviceteam3.azurewebsites.net/ <br>
+
 Voor java kun je de instructies volgen in: https://learn.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-create-bot?view=azure-bot-service-4.0&tabs=java%2Cvs om een bot te maken. 
 
 Download en installeer de bot framework emulator om je bot lokaal te testen: https://github.com/Microsoft/BotFramework-Emulator/releases/tag/v4.14.1
@@ -74,10 +84,10 @@ Download en installeer de bot framework emulator om je bot lokaal te testen: htt
 Ga naar de rootfolder van je project:
 
 ```bash
-az bot prepare-deploy --lang Csharp --code-dir "." --proj-file-path "<my-cs-proj>"
+az bot prepare-deploy --lang Csharp --code-dir "." --proj-file-path .\VX.PizzaDeliveryGuy.Bot.csproj
 ```
 
-ZIP de volledige inhoud van de root folder naar *vxpizzadeliveryguybot.zip*
+ZIP de volledige inhoud van de folder waar het .proj file in staat naar *vxpizzadeliveryguybot.zip*
 
 ```bash
 az webapp deployment source config-zip --resource-group VrolijkTeam1 --name vxpizzadeliveryguybotserviceteam1 --src .\vxpizzadeliveryguybot.zip

@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appServiceName": {
-      "value": "vxpizzadeliveryguybotserviceteam1"
+      "value": "vxpizzadeliveryguybotserviceteam3"
     },
     "existingAppServicePlanName": {
       "value": ""
@@ -12,7 +12,7 @@
       "value": ""
     },
     "newAppServicePlanName": {
-      "value": "vxpizzadeliveryguybotserviceplanteam1"
+      "value": "vxpizzadeliveryguybotserviceplanteam3"
     },
     "newAppServicePlanLocation": {
       "value": "westeurope"
@@ -36,13 +36,13 @@
       "value": ""
     },
     "UMSIName": {
-      "value": "vxpizzadeliveryguyidentityteam1"
+      "value": "vxpizzadeliveryguyidentityteam3"
     },
     "UMSIResourceGroupName": {
-      "value": "VrolijkTeam1"
+      "value": "VrolijkTeam3"
     },
     "tenantId": {
-      "value": "35a8d53f-787c-4266-8b2a-0af6830e6b39"
+      "value": "b6d514d0-2101-4499-b991-fef43d54f8cf"
     }
   }
 }
