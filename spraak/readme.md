@@ -27,13 +27,13 @@ Voor elk team zijn er de resources die we nodig hebben voor de complete solution
 
 De volgende resources zijn aangemaakt om te gaan gebruiken:
 
-- Cognitive services (https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/)
+- Cognitive services (https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/) <br>
 Voor speech-to-text en text-to-speech.
 
-- Azure Bot (https://learn.microsoft.com/en-us/azure/bot-service/bot-service-overview?WT.mc_id=Portal-Microsoft_Azure_BotService&view=azure-bot-service-4.0)
+- Azure Bot (https://learn.microsoft.com/en-us/azure/bot-service/bot-service-overview?WT.mc_id=Portal-Microsoft_Azure_BotService&view=azure-bot-service-4.0)<br>
 Voor het ontwikkelen en hosten van de chatbot
 
-- Language Service (https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/question-answering/overview)
+- Language Service (https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/question-answering/overview)<br>
 Voor het kunnen trainen en samenstellen van een "question answering model".
 
 Als je deze handleiding volgt na de vrolijke vrijdag kun je zelf de resources aanmaken door de stappen in [Azure resources aanmaken](#section6) te volgen.
