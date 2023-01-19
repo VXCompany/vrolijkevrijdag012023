@@ -1,9 +1,6 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using VX.PizzaDeliveryGuy.Speech.SpeechToText;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 var app = builder.Build();
 

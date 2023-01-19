@@ -1,4 +1,4 @@
 ﻿namespace VX.PizzaDeliveryGuy.Speech.SpeechToText
 {
-    public record ListResponse(string Content);
+    public record ListResponse(string Content, string Filepath);    
 }
