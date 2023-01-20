@@ -32,7 +32,7 @@ namespace VX.PizzaDeliveryGuy.Speech.SpeechToText
             File.WriteAllBytes("c:\\temp\\recording.wav", result.AudioData);
             using (var reader = new MediaFoundationReader("c:\\temp\\recording.wav"))
             {
-                MediaFoundationEncoder.EncodeToAac(reader, "c:\\temp\\encodedfile.mp4");
+                MediaFoundationEncoder.EncodeToMp3(reader, "c:\\temp\\encodedfile.mp3");
             }
 
         }

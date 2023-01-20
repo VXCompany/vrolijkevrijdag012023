@@ -57,7 +57,7 @@ Java: https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/
 ## Stappen praten
 
 1. Volg de quickstart om de tekst die je wilt laten uitspreken om te zetten naar audio.
-2. De text-to-speech service levert een WAV file op, deze moet voor de deurbel omgezet worden naar een MP4 bestand. Deze kan opnieuw door NAudio of Jave worden gemaakt.
+2. De text-to-speech service levert een WAV file op, deze moet voor de deurbel omgezet worden naar een MP3 bestand. Deze kan opnieuw door NAudio of Jave worden gemaakt.
 3. Stuur de audio file naar de deurbel API.
 
 ### Quickstarts
