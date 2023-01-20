@@ -1,5 +1,6 @@
 ﻿using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
+using NAudio.MediaFoundation;
 using NAudio.Wave;
 using VX.PizzaDeliveryGuy.Speech.ChatBotClient;
 
@@ -25,6 +26,15 @@ namespace VX.PizzaDeliveryGuy.Speech.SpeechToText
             using var speechSynthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
 
             var result = await speechSynthesizer.SpeakTextAsync(text.Content);
+
+            MediaFoundationApi.Startup();
+
+            File.WriteAllBytes("c:\\temp\\recording.wav", result.AudioData);
+            using (var reader = new MediaFoundationReader("c:\\temp\\recording.wav"))
+            {
+                MediaFoundationEncoder.EncodeToAac(reader, "c:\\temp\\encodedfile.mp4");
+            }
+
         }
 
         public async Task<ListResponse> Listen(ListenRequest listenRequest)
