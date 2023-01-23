@@ -1,6 +1,6 @@
 # Vrolijke Vrijdag 20 Januari
 
-In deze repo vindt je alles wat je nodig hebt voor de VX Kennisdag van 20 januari 2023.
+In deze repo vind je alles wat je nodig hebt voor de VX Kennisdag van 20 januari 2023.
 
 Deze kennisdag staat in het teken van IoT en Machine Learning. Je gaat:
 
